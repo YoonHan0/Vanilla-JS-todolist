@@ -35,7 +35,7 @@ export default function List(props) {
         props.onClickRemove(props.todo.id);
     }
     const onClickCheck = () => {
-        console.log("check");
+        props.onClickCheck(props.todo.id)
     }
 
     return render()

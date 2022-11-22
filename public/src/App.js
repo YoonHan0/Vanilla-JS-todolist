@@ -19,11 +19,26 @@ export default function App($target) {
         const data =  await api.json()
         setTodoList(data.filter((e, index) => index < 10));
     }
+    const handleClickCreate = (value) => {
+        let lastId = state.todoList[state.todoList.length-1]
+        // const addTodoList = state.todoList.push({
+        //     id : lastId+1,
+        //     userId : 1,
+        //     title : value,
+        //     completed : false
+        // })
+        //setTodoList(addTodoList)
+        console.log(value, lastId);     // 값 불러오기, 마지막 아이디
+    }
     const handleClickRemove = (id) => {
         const newTodoList = state.todoList.filter(e => e.id !== id)
         setTodoList(newTodoList)
         //const _newTodoList = [...state.todoList];
         //_newTodoList.splice(id,1);
+    }
+    const handleClickCheck = (id) => {       // 체크
+        const value = state.todoList.filter(e => e.id === id)
+        console.log(value); // 체크된 녀석의 아이디
     }
 
     const setTodoList = (todoList) => {
@@ -37,10 +52,13 @@ export default function App($target) {
         $main.className = "main"
 
         $title = new Title()
-        $inputBox = new InputBox()
+        $inputBox = new InputBox({
+            onClickCreate : handleClickCreate
+        })
         $listBox = new ListBox({
             todoList : state.todoList,
-            onClickRemove : handleClickRemove
+            onClickRemove : handleClickRemove,
+            onClickCheck :handleClickCheck
         })
 
         $main.append($title)
