@@ -20,15 +20,15 @@ export default function App($target) {
         setTodoList(data.filter((e, index) => index < 10));
     }
     const handleClickCreate = (value) => {
-        let lastId = state.todoList[state.todoList.length-1]
-        // const addTodoList = state.todoList.push({
-        //     id : lastId+1,
-        //     userId : 1,
-        //     title : value,
-        //     completed : false
-        // })
-        //setTodoList(addTodoList)
-        console.log(value, lastId);     // 값 불러오기, 마지막 아이디
+        let lastId = state.todoList[state.todoList.length-1].id
+        let addData = {
+            id : lastId+1,
+            userId : 1,
+            title : value,
+            completed : false
+        }
+        let addTodoList = state.todoList.concat(addData)
+        setTodoList(addTodoList)
     }
     const handleClickRemove = (id) => {
         const newTodoList = state.todoList.filter(e => e.id !== id)
