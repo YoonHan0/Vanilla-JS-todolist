@@ -27,7 +27,8 @@ export default function App($target) {
             title : value,
             completed : false
         }
-        let addTodoList = state.todoList.concat(addData)
+        let addTodoList = state.todoList.concat(addData) 
+        console.log(lastId)
         setTodoList(addTodoList)
     }
     const handleClickRemove = (id) => {
