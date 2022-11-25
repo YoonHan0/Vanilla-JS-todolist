@@ -4,7 +4,7 @@ export default function Title() {
         const $title = document.createElement('header')
         const $titleText = document.createElement('h1')
 
-        $titleText.append("오늘 할 일")
+        $titleText.append("To Do List!")
         $title.append($titleText)
         return $title
     }

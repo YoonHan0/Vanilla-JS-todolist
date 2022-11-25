@@ -35,8 +35,5 @@ export default function InputBox(props) {
         // console.log($input.value);
         props.onClickCreate($input.value)
     }
-    const bindEvent = () => {
-
-    }
     return render()
 }

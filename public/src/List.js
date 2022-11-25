@@ -25,8 +25,8 @@ export default function List(props) {
         $remove.append('X')
         $label.append(props.todo.title)
         //props.todo.completed && $check.append('✓')
-        $check.append(props.todo.completed ? '✓' : '')
-        //$check.append('✓')
+        //$check.append(props.todo.completed ? '✓' : '')
+        $check.append('✓')
         $list.append($remove, $label, $check)
 
         return $list
@@ -35,7 +35,7 @@ export default function List(props) {
         props.onClickRemove(props.todo.id);
     }
     const onClickCheck = () => {
-        props.onClickCheck(props.todo.id)
+        props.onClickCheck($label)
     }
 
     return render()

@@ -1,14 +1,16 @@
+body {
+  background-color: #dde4eb;
+}
 .main {
-  position: absolute;
   width: 500px;
-  background-color: bisque;
-  top: 100px;
-  left: 100px;
+  background-color: white;
+  margin: 30px auto 0px auto;
   border-radius: 40px;
 }
 
 header {
   text-align: center;
+  padding-top: 3px;
 }
 
 section {
@@ -42,13 +44,14 @@ section input {
 }
 
 #inputBox {
-  background-color: darkgray;
+  background-color: white;
   justify-content: space-between;
 }
 
 #listBox {
-  background-color: goldenrod;
+  background-color: white;
   flex-direction: column;
+  border-radius: 0px 0px 30px 30px;
 }
 
 .list {
@@ -94,6 +97,7 @@ section input {
 }
 
 .checked {
+  flex: 1;
   text-decoration: line-through;
   color: #adb5bd;
 }
