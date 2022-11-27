@@ -4,30 +4,29 @@ export default function List(props) {
     let $remove = null
     let $label = null
     let $check = null
-    let id = props.id
 
     const render = () => {
         //const {todo, onClickRemove} = props
-        //console.log(props);
         $list = document.createElement('div')
         $remove = document.createElement('div')
         $label = document.createElement('div')
         $check = document.createElement('div')
 
-        $remove.addEventListener('click', onClickRemove)
-        $check.addEventListener('click', onClickCheck)
-
-        $list.className = 'todo-item'
         $remove.className = 'remove'
-        $label.className = 'todo-text'
+        $list.className = 'todo-item'
+        // $label.className = 'todo-text'
+        props.todo.completed ? $label.className = 'checked' : $label.className = 'todo-text'
         $check.className = 'check-mark'
 
         $remove.append('X')
         $label.append(props.todo.title)
         //props.todo.completed && $check.append('✓')
-        //$check.append(props.todo.completed ? '✓' : '')
-        $check.append('✓')
+        $check.append(props.todo.completed ? '✓' : '')
+        // $check.append('✓')
         $list.append($remove, $label, $check)
+
+        $remove.addEventListener('click', onClickRemove)
+        $list.addEventListener('click', onClickCheck)
 
         return $list
     }
@@ -35,7 +34,7 @@ export default function List(props) {
         props.onClickRemove(props.todo.id);
     }
     const onClickCheck = () => {
-        props.onClickCheck($label)
+        props.onClickCheck(props.todo.id)
     }
 
     return render()

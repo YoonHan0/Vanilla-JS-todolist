@@ -37,11 +37,24 @@ export default function App($target) {
         //const _newTodoList = [...state.todoList];
         //_newTodoList.splice(id,1);
     }
-    const handleClickCheck = (checkValue) => {       // 체크
+    const handleClickCheck = (checkValueId) => {       // 체크
         // const value = state.todoList.filter(e => e === value1)
-        console.log(checkValue); // 체크된 녀석의 정보
-        checkValue.className === "todo-text" ? checkValue.className = 'checked' : checkValue.className = 'todo-text'
+        // console.log(checkValueId); // 체크된 녀석의 정보
+        // checkValue.className === "todo-text" ? checkValue.className = 'checked' : checkValue.className = 'todo-text'
+        const newTodoList = state.todoList.map(e => {
+            if(e.id === checkValueId) {
+                if(e.completed) {
+                    e.completed = false
+                }
+                else {
+                    e.completed = true
+                }
+            }
+            return e;
+        })
+        setTodoList(newTodoList)
     }
+    
 
     const setTodoList = (todoList) => {
         state = {...state, todoList}    // 전개연산자를 이렇게 쓰면 앞의 Object형태를 뒤에꺼로 덮음
