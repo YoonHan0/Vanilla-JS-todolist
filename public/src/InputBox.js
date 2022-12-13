@@ -32,7 +32,6 @@ export default function InputBox(props) {
     }
     /** 추가 버튼 이벤트 */
     const onClickAddButton = () => {
-        // console.log($input.value);
         props.onClickCreate($input.value)
     }
     return render()

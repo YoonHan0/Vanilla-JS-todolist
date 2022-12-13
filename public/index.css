@@ -96,6 +96,10 @@ section input {
   word-break: break-all;
 }
 
+.update_btn {
+  display: block;
+}
+
 .checked {
   flex: 1;
   text-decoration: line-through;

@@ -34,13 +34,9 @@ export default function App($target) {
     const handleClickRemove = (id) => {
         const newTodoList = state.todoList.filter(e => e.id !== id)
         setTodoList(newTodoList)
-        //const _newTodoList = [...state.todoList];
-        //_newTodoList.splice(id,1);
+    
     }
     const handleClickCheck = (checkValueId) => {       // 체크
-        // const value = state.todoList.filter(e => e === value1)
-        // console.log(checkValueId); // 체크된 녀석의 정보
-        // checkValue.className === "todo-text" ? checkValue.className = 'checked' : checkValue.className = 'todo-text'
         const newTodoList = state.todoList.map(e => {
             if(e.id === checkValueId) {
                 if(e.completed) {
